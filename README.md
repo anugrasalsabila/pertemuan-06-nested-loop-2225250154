@@ -1,130 +1,154 @@
 # Pertemuan 06 Nested Loop Python
 
-Nama: Intan Anugra Salsabila
-NIM: 2225250154
+Nama: Intan Anugra Salsabila  
+NIM: 2225250154  
 Kelas: 3F
+
 ## Tujuan
+
 Menggunakan nested loop, pola, akumulasi, dan pencacahan.
+
 ## Cara Menjalankan
+
+```bash
 python3 tugas/tabel_perkalian_dan_statistik.py
+```
+
 ## Algoritma Tugas 3
-Tuliskan peran loop luar, loop dalam, akumulator, dan counter.
+
+1. Meminta input bilangan bulat positif `n`.
+2. Memvalidasi input menggunakan `while` sampai nilai `n` valid.
+3. Menginisialisasi `total_semua = 0` dan `count_genap = 0`.
+4. Mengulangi loop luar untuk nilai `i` dari 1 sampai `n`.
+5. Menginisialisasi `total_baris = 0` pada setiap baris.
+6. Mengulangi loop dalam untuk nilai `j` dari 1 sampai `n`.
+7. Menghitung `hasil = i * j`.
+8. Menambahkan `hasil` ke `total_baris` dan `total_semua`.
+9. Jika `hasil % 2 == 0`, menambah `count_genap` sebanyak 1.
+10. Menampilkan jumlah setiap baris setelah loop dalam selesai.
+11. Menampilkan total keseluruhan dan banyak hasil genap setelah kedua loop selesai.
+
+**Peran setiap bagian program:**
+
+- **Loop luar (`i`):** Mengatur baris tabel perkalian.
+- **Loop dalam (`j`):** Mengatur kolom tabel perkalian.
+- **Akumulator `total_baris`:** Menghitung jumlah hasil perkalian pada setiap baris.
+- **Akumulator `total_semua`:** Menghitung jumlah seluruh hasil perkalian.
+- **Counter `count_genap`:** Menghitung banyak hasil perkalian yang genap.
+- **Kondisi:** Memeriksa apakah hasil perkalian genap.
+- **Validasi:** Memastikan nilai `n` merupakan bilangan bulat positif.
+
 ## Hasil Pengujian
-Catat input, hasil yang diharapkan, keluaran aktual, dan status.
+
+| Input | Hasil yang diharapkan | Keluaran aktual | Status |
+|---|---|---|---|
+| `n = 1` | Pasangan = 1, total = 1, genap = 0 | Pasangan = 1, total = 1, genap = 0 | Berhasil |
+| `n = 2` | Pasangan = 4, total = 9, genap = 3 | Pasangan = 4, total = 9, genap = 3 | Berhasil |
+| `n = 3` | Pasangan = 9, total = 36, genap = 5 | Pasangan = 9, total = 36, genap = 5 | Berhasil |
+
+### Keluaran Aktual
+
+**Input `n = 1`**
+
+```text
+Tabel Perkalian dan Statistik
+n: 1
+1
+Jumlah baris 1: 1
+Jumlah pasangan: 1
+Total keseluruhan: 1
+Banyak hasil genap: 0
+```
+
+**Input `n = 2`**
+
+```text
+Tabel Perkalian dan Statistik
+n: 2
+1  2
+Jumlah baris 1: 3
+2  4
+Jumlah baris 2: 6
+Jumlah pasangan: 4
+Total keseluruhan: 9
+Banyak hasil genap: 3
+```
+
+**Input `n = 3`**
+
+```text
+Tabel Perkalian dan Statistik
+n: 3
+1  2  3
+Jumlah baris 1: 6
+2  4  6
+Jumlah baris 2: 12
+3  6  9
+Jumlah baris 3: 18
+Jumlah pasangan: 9
+Total keseluruhan: 36
+Banyak hasil genap: 5
+```
+
+Hasil pengujian sesuai dengan test case yang ditentukan.
+
 ## Analisis Efisiensi
-Jelaskan berapa kali badan loop dalam berjalan untuk input n.
+
+Loop luar berjalan sebanyak `n` kali dan loop dalam berjalan sebanyak `n` kali untuk setiap iterasi loop luar.
+
+Jumlah eksekusi pernyataan `hasil = i * j` adalah:
+
+```python
+n * n
+```
+
+Dengan demikian, jumlah eksekusi adalah `n²` kali.
+
+Contoh:
+- `n = 1`: 1 kali.
+- `n = 2`: 4 kali.
+- `n = 3`: 9 kali.
+- `n = 10`: 100 kali.
+
+Kompleksitas waktu program adalah **O(n²)** karena menggunakan dua perulangan bersarang.
+
 ## Refleksi
-Jelaskan satu kesalahan nested loop yang ditemukan dan cara memperbaikinya.
-Refleksi Teknis
-• Mengapa total_baris direset di setiap iterasi loop luar?
-• Mengapa total_semua tidak direset di setiap baris?
-• Untuk n, berapa kali pernyataan hasil = i * j dieksekusi?
-• Bagaimana Anda membuktikan count_genap benar?
-• Apa bagian program yang akan paling banyak melakukan operasi ketika n membesar?      lengakpi readme tersebut dengan hassil ter,inal ini, dan arahan bapak yag ini 7 Latihan di VS Code
-Simpan setiap latihan dalam folder latihan. Untuk setiap program, tuliskan komentar singkat tentang peran loop
-luar, loop dalam, kondisi, akumulator atau counter, dan output. Jalankan semua test case sebelum commit.
-Latihan 1 Pasangan Indeks
-Buat 01_pasangan_indeks.py. Program menampilkan seluruh pasangan (i, j) untuk i = 1..3 dan j = 1..4, lalu
-menampilkan banyak pasangan.
-count = 0
-for i in range(1, 4):
-for j in range(1, 5):
-print(i, j)
-count += 1
-print(f"Banyak pasangan = {count}")
-Hasil yang diharapkan: 12 pasangan dan count = 12.
-Latihan 2 Pola Segitiga
-Buat 02_pola_segitiga.py. Program menerima n positif dan menghasilkan pola bintang dengan 1 simbol pada baris
-pertama sampai n simbol pada baris ke-n.
-n = int(input("n: "))
-for i in range(1, n + 1):
-for j in range(i):
-print("*", end=" ")
-print()
-Test case: n = 1, n = 3, dan n = 5.
 
-Algoritma dan Pemrograman | Pertemuan 06 | 10
+Salah satu kesalahan dalam penggunaan nested loop adalah menempatkan inisialisasi akumulator pada posisi yang tidak tepat. Jika `total_baris` tidak direset pada setiap iterasi loop luar, hasil penjumlahan baris sebelumnya akan ikut terbawa ke baris berikutnya.
 
-Checklist Latihan 1 dan 2
-• [ ] Loop luar dan loop dalam memiliki peran yang dapat dijelaskan.
-• [ ] Indentasi benar.
-• [ ] Batas range sesuai spesifikasi.
-• [ ] Jumlah iterasi dapat diprediksi sebelum program dijalankan.
-Latihan 3 Jumlah per Baris
-Buat 03_jumlah_per_baris.py. Untuk i = 1 sampai 4 dan j = 1 sampai 3, hitung nilai i * j dan tampilkan jumlah setiap
-baris.
-for i in range(1, 5):
-total_baris = 0
-for j in range(1, 4):
-total_baris += i * j
-print(f"Jumlah baris {i} = {total_baris}")
-i Nilai i*j Jumlah
-1 1, 2, 3 6
-2 2, 4, 6 12
-3 3, 6, 9 18
-4 4, 8, 12 24
+Cara memperbaikinya adalah menempatkan `total_baris = 0` di dalam loop luar dan sebelum loop dalam. Sementara itu, `total_semua` dan `count_genap` diinisialisasi sebelum loop luar agar nilainya terus bertambah sampai seluruh perulangan selesai.
 
-Latihan 4 Menghitung Pasangan
-Buat 04_hitung_pasangan.py. Untuk i dan j dari 1 sampai n, hitung berapa pasangan yang memenuhi i + j <= n.
-n = int(input("n: "))
-count = 0
-for i in range(1, n + 1):
-for j in range(1, n + 1):
-if i + j <= n:
-count += 1
-print(f"Banyak pasangan = {count}")
-Test case wajib: n = 2, n = 3, dan n = 5. Lakukan tracing manual untuk n = 3.
-Checklist Semua Latihan
-• [ ] Akumulator atau counter diinisialisasi pada lokasi yang tepat.
-• [ ] Setiap kondisi diperiksa terhadap seluruh pasangan yang relevan.
-• [ ] Program diuji dengan kasus kecil yang dapat dihitung manual.
-• [ ] Hasil aktual sama dengan hasil manual.
-• [ ] Kode dapat dijelaskan tanpa membaca baris demi baris.
-8 Tugas 3: Tabel Perkalian dan Statistik
-Buat program tugas/tabel_perkalian_dan_statistik.py. Program menerima bilangan bulat positif n. Program
-membentuk tabel perkalian 1 sampai n, menghitung jumlah seluruh hasil perkalian, menghitung banyak hasil yang
-genap, dan menentukan jumlah setiap baris.
-Spesifikasi
-• Baca n sebagai integer positif.
+### Refleksi Teknis
 
-Algoritma dan Pemrograman | Pertemuan 06 | 11
+**1. Mengapa `total_baris` direset di setiap iterasi loop luar?**
 
-• Jika n <= 0, minta n kembali sampai valid.
-• Gunakan nested loop for untuk membentuk tabel n x n.
-• Pada setiap pasangan, hitung hasil = i * j.
-• Tampilkan nilai hasil secara teratur per baris.
-• Hitung total seluruh hasil perkalian.
-• Hitung banyak hasil yang genap.
-• Hitung dan tampilkan jumlah setiap baris.
-• Setelah tabel selesai, tampilkan total keseluruhan dan banyak hasil genap.
-Algoritma
-1. Baca dan validasi n.
-2. Set total_semua = 0 dan count_genap = 0.
-3. Ulangi i dari 1 sampai n.
-4. Set total_baris = 0 untuk baris i.
-5. Ulangi j dari 1 sampai n.
-6. Hitung hasil = i * j.
-7. Tambahkan hasil ke total_baris dan total_semua.
-8. Jika hasil genap, tambah count_genap.
-9. Setelah loop dalam selesai, tampilkan total_baris.
-10. Setelah kedua loop selesai, tampilkan total_semua dan count_genap.
-Kerangka Program
-print("Tabel Perkalian dan Statistik")
-n = int(input("n: "))
-# Lengkapi validasi n dengan while.
-# Inisialisasi total keseluruhan dan counter genap.
-# Gunakan nested loop untuk tabel, total baris, total keseluruhan, dan pencacahan.
-Test Case Wajib
-n Jumlah pasangan Total semua Banyak hasil genap
-1 1 1 0
-2 4 9 3
-3 9 36 5
+Karena `total_baris` hanya digunakan untuk menjumlahkan hasil perkalian pada satu baris. Ketika berpindah ke baris baru, nilainya harus kembali menjadi 0 agar tidak tercampur dengan hasil baris sebelumnya.
 
-Kriteria Keberhasilan Tugas 3
-• [ ] Program dapat dijalankan tanpa SyntaxError atau IndentationError.
-• [ ] Validasi n berhenti tepat setelah input positif.
-• [ ] Nested loop menghasilkan tepat n x n pasangan.
-• [ ] Jumlah setiap baris benar.
-• [ ] Total keseluruhan benar untuk seluruh test case.
-• [ ] Counter genap benar dan hanya bertambah ketika hasil genap.
-• [ ] Struktur kode jelas dan tidak mengulang proses yang tidak diperlukan.
+**2. Mengapa `total_semua` tidak direset di setiap baris?**
+
+Karena `total_semua` digunakan untuk menjumlahkan seluruh hasil perkalian dari semua baris. Jika direset setiap baris, jumlah yang telah dikumpulkan sebelumnya akan hilang.
+
+**3. Untuk `n`, berapa kali pernyataan `hasil = i * j` dieksekusi?**
+
+Pernyataan tersebut dieksekusi sebanyak `n²` kali karena loop luar berjalan `n` kali dan loop dalam berjalan `n` kali pada setiap iterasi loop luar.
+
+**4. Bagaimana Anda membuktikan `count_genap` benar?**
+
+Setiap hasil perkalian diperiksa menggunakan kondisi berikut:
+
+```python
+if hasil % 2 == 0:
+    count_genap += 1
+```
+
+Counter hanya bertambah jika hasil perkalian habis dibagi 2. Untuk `n = 3`, hasil genapnya adalah 2, 2, 4, 6, dan 6. Jadi, `count_genap = 5`.
+
+**5. Apa bagian program yang akan paling banyak melakukan operasi ketika `n` membesar?**
+
+Loop dalam merupakan bagian yang paling banyak melakukan operasi karena dijalankan sebanyak `n²` kali. Di bagian ini, program menghitung hasil perkalian, memperbarui akumulator, dan memeriksa kondisi bilangan genap.
+
+## Kesimpulan
+
+Nested loop dapat digunakan untuk membuat tabel perkalian dan memproses setiap pasangan baris dan kolom. Akumulator digunakan untuk menghitung jumlah, sedangkan counter digunakan untuk menghitung banyaknya hasil yang memenuhi kondisi tertentu.
+
+Melalui tugas ini, saya memahami pentingnya penempatan variabel, penggunaan kondisi, validasi input, dan pengujian program agar hasilnya sesuai dengan perhitungan manual.
